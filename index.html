@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrewHaven Roasters | Premium Coffee & Gear</title>
+    <meta name="description"
+        content="Premium coffee beans, brewing equipment, and accessories. Awaken your senses with BrewHaven.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons (Phosphor Icons for a clean look) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-content">
+            <div class="logo">
+                <i class="ph-fill ph-coffee-bean"></i>
+                <h1>BrewHaven</h1>
+            </div>
+
+            <nav class="desktop-nav">
+                <a href="#hero" class="active">Home</a>
+                <a href="#shop">Shop</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <div class="header-actions">
+                <div class="search-wrapper">
+                    <input type="text" id="search-input" placeholder="Search coffee, gear...">
+                    <i class="ph ph-magnifying-glass"></i>
+                </div>
+
+                <button id="wishlist-btn" class="icon-btn" aria-label="Wishlist">
+                    <i class="ph ph-heart"></i>
+                    <span class="badge" id="wishlist-count">0</span>
+                </button>
+
+                <button id="cart-btn" class="icon-btn" aria-label="Cart">
+                    <i class="ph ph-shopping-cart"></i>
+                    <span class="badge" id="cart-count">0</span>
+                </button>
+
+                <button id="mobile-menu-btn" class="icon-btn mobile-only">
+                    <i class="ph ph-list"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobile-menu">
+        <button class="close-btn" id="close-mobile-menu"><i class="ph ph-x"></i></button>
+        <nav>
+            <a href="#hero">Home</a>
+            <a href="#shop">Shop</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h2>Awaken Your Senses</h2>
+            <p>Premium Coffees, Authentic Kaapi & Delightful Treats</p>
+            <a href="#shop" class="cta-btn">Explore Menu</a>
+        </div>
+    </section>
+
+    <!-- Shop Section -->
+    <section id="shop" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Collection</h2>
+                <p>Handpicked favorites for every coffee lover.</p>
+            </div>
+
+            <div class="filters">
+                <button class="filter-btn active" data-category="all">All Items</button>
+                <button class="filter-btn" data-category="coffee">Hot Coffees</button>
+                <button class="filter-btn" data-category="kaapi">Filter Kaapi</button>
+                <button class="filter-btn" data-category="cold">Cold Drinks</button>
+                <button class="filter-btn" data-category="tea">Chai & Tea</button>
+                <button class="filter-btn" data-category="refresher">Refreshers</button>
+                <button class="filter-btn" data-category="food">Food</button>
+            </div>
+
+            <div id="product-grid" class="product-grid">
+                <!-- Products injected via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About BrewHaven</h2>
+                <p>Your favorite neighborhood café bringing you the finest coffees and authentic Indian flavors</p>
+            </div>
+
+            <div class="features">
+                <div class="feature">
+                    <i class="ph ph-coffee"></i>
+                    <h3>Premium Coffees</h3>
+                    <p>From classic espressos to traditional South Indian filter kaapi</p>
+                </div>
+                <div class="feature">
+                    <i class="ph ph-leaf"></i>
+                    <h3>Fresh & Authentic</h3>
+                    <p>Made with the finest ingredients and authentic Indian recipes</p>
+                </div>
+                <div class="feature">
+                    <i class="ph ph-heart"></i>
+                    <h3>Made with Love</h3>
+                    <p>Every cup crafted with care, just like home</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h3>BrewHaven</h3>
+                <p>Elevating your daily brew since 2023.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Links</h4>
+                <a href="#hero">Home</a>
+                <a href="#shop">Shop</a>
+                <a href="#about">About</a>
+                <a href="#admin-orders" id="admin-orders-link">Orders (Admin)</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <p>hello@brewhaven.com</p>
+                <p>123 Roast Blvd, Coffee City</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 BrewHaven Roasters. All rights reserved.</p>
+            <p id="admin-note" style="display: none; font-size: 11px; color: #666; margin-top: 10px;">
+                🔒 All orders stored in browser LocalStorage (key: brewhaven_orders). No server connection.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Admin Orders Section -->
+    <section id="admin-orders" class="admin-section" style="display: none;">
+        <div class="container">
+            <div class="admin-header">
+                <h2>📦 Order Management</h2>
+                <div class="admin-actions">
+                    <button id="refresh-orders-btn" class="admin-btn">
+                        <i class="ph ph-arrows-clockwise"></i> Refresh
+                    </button>
+                    <button id="clear-orders-btn" class="admin-btn danger">
+                        <i class="ph ph-trash"></i> Clear All Orders
+                    </button>
+                    <button id="close-admin-btn" class="admin-btn">
+                        <i class="ph ph-x"></i> Close
+                    </button>
+                </div>
+            </div>
+
+            <div class="orders-stats">
+                <div class="stat-card">
+                    <div class="stat-label">Total Orders</div>
+                    <div class="stat-value" id="total-orders">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Total Revenue</div>
+                    <div class="stat-value" id="total-revenue">₹0</div>
+                </div>
+            </div>
+
+            <div id="orders-list" class="orders-list">
+                <!-- Orders will be injected here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <aside class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="close-btn" id="close-cart"><i class="ph ph-x"></i></button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items injected via JS -->
+            <div class="empty-cart-msg">Your cart is empty. Time to brew something up!</div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-summary">
+                <div class="summary-row"><span>Subtotal</span><span id="cart-subtotal">₹0</span></div>
+                <div class="summary-row"><span>GST (18%)</span><span id="cart-tax">₹0</span></div>
+                <div class="summary-row"><span>Shipping</span><span id="cart-shipping">₹0</span></div>
+                <div class="summary-row total"><span>Total</span><span id="cart-total">₹0</span></div>
+            </div>
+            <button id="checkout-btn" class="checkout-btn" disabled>Proceed to Checkout</button>
+            <button id="clear-cart-btn" class="text-btn">Clear Cart</button>
+        </div>
+    </aside>
+
+    <!-- Product Detail Modal -->
+    <div class="modal-overlay" id="product-modal-overlay">
+        <div class="modal product-modal" id="product-modal">
+            <button class="close-modal" id="close-product-modal"><i class="ph ph-x"></i></button>
+            <div class="modal-content-wrapper" id="product-modal-content">
+                <!-- Content injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Wishlist Modal -->
+    <div class="modal-overlay" id="wishlist-modal-overlay">
+        <div class="modal wishlist-modal">
+            <div class="modal-header">
+                <h3>Your Wishlist</h3>
+                <button class="close-modal" id="close-wishlist-modal"><i class="ph ph-x"></i></button>
+            </div>
+            <div class="wishlist-items" id="wishlist-items">
+                <!-- Wishlist items injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal-overlay" id="checkout-modal-overlay">
+        <div class="modal checkout-modal">
+            <div class="modal-header">
+                <h3>Checkout</h3>
+                <button class="close-modal" id="close-checkout-modal"><i class="ph ph-x"></i></button>
+            </div>
+            <div class="checkout-body">
+                <form id="checkout-form">
+                    <div class="form-section">
+                        <h4>Shipping Information</h4>
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" name="name" required placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label>Mobile Number</label>
+                            <input type="tel" name="mobile" required placeholder="9876543210" pattern="[0-9]{10}">
+                        </div>
+                        <div class="form-group">
+                            <label>Address</label>
+                            <input type="text" name="address" required placeholder="123 Coffee Lane">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>City</label>
+                                <input type="text" name="city" required placeholder="Mumbai">
+                            </div>
+                            <div class="form-group">
+                                <label>State</label>
+                                <input type="text" name="state" required placeholder="Maharashtra">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Pin Code</label>
+                                <input type="text" name="pincode" required placeholder="400001" pattern="[0-9]{6}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h4>Payment Details</h4>
+                        <div class="form-group">
+                            <label>Card Number</label>
+                            <input type="text" name="cardnumber" required placeholder="0000 0000 0000 0000"
+                                maxlength="19">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Expiry</label>
+                                <input type="text" name="expiry" required placeholder="MM/YY" maxlength="5">
+                            </div>
+                            <div class="form-group">
+                                <label>CVV</label>
+                                <input type="text" name="cvv" required placeholder="123" maxlength="3">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checkout-summary">
+                        <div class="summary-row total"><span>Total to Pay</span><span
+                                id="checkout-total-display">₹0</span></div>
+                    </div>
+
+                    <button type="submit" class="place-order-btn">Place Order</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Overlay (Confetti) -->
+    <div class="success-overlay" id="success-overlay">
+        <div class="success-content">
+            <div class="check-icon"><i class="ph-fill ph-check-circle"></i></div>
+            <h3>Order Placed Successfully! 🎉</h3>
+            <p id="success-message">Your order is saved in your browser (LocalStorage).</p>
+            <p id="order-id-display" style="font-weight: 600; color: #27AE60; margin-bottom: 20px;"></p>
+            <button class="cta-btn" id="close-success">Continue Shopping</button>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
